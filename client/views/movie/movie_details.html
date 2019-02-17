@@ -5,16 +5,16 @@
         <div class="panel panel-primary" ng-init="getMovie()">
             <div class="panel-body">
                 <div class="row">
-                    <div class="col-md-5 col-sm-5 col-xs-12" >
-                        <div class="row" ><img src="{{movie.image_url}}" class="img-responsive"></div>
+                    <div class="col-md-5 col-sm-5 col-xs-12">
+                        <div class="row"><img src="{{movie.image_url}}" class="img-responsive"></div>
                         <div class="row" style="padding: 20px">
                             <center><b>Movie Cast <i class="fa fa-users" aria-hidden="true"></i></b></center>
                             <br>
                             <div class="row">
                                 <div ng-repeat="name in movie.actorname">
                                     <div class="col-md-6 col-sm-6 col-xs-12">
-                                        {{$index +1 }}. {{name}}  
-                                    </div>             
+                                        {{$index +1 }}. {{name}}
+                                    </div>
                                 </div>
                             </div>
                         </div>

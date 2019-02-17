@@ -21,7 +21,6 @@
                             <br>
                             <div class="author_decs">
                                 <div class="form-group">
-                                   
                                     <input type="text" class="form-control" ng-model="actor.name" placeholder="Name" name="name" ng-required="true">
                                     <div ng-show="addForm.name.$touched && addForm.name.$invalid" style="margin-top: 5px">
                                         <div class="alert alert-danger">
@@ -30,9 +29,8 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    
                                     <select ng-model="actor.sex" class="form-control" ng-required="true" name="sex">
-                                         <option value="">Choose Your Gender</option>
+                                        <option value="">Choose Your Gender</option>
                                         <option value="Male">Male</option>
                                         <option value="Female">Female</option>
                                     </select>
@@ -43,7 +41,6 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                   
                                     <input type="date" class="form-control" ng-model="actor.dob" placeholder="Date Of Birth" ng-required="true" name="dob">
                                     <div ng-show="addForm.dob.$touched && addForm.dob.$invalid" style="margin-top: 5px">
                                         <div class="alert alert-danger">
@@ -52,14 +49,12 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                   
                                     <input type="number" class="form-control" ng-model="actor.phone" placeholder="MobileNo." ng-minlength="10" ng-maxlength="10" ng-required="true" name="phone">
                                     <span class="help-block" ng-show="addForm.phone.$error.required || addForm.phone.$error.number">Valid phone number is required</span>
                                     <span class="help-block" ng-show="((addForm.phone.$error.minlength ||addForm.phone.$error.maxlength) && addForm.phone.$dirty)">phone number should be 10 digits
                                     </span>
                                 </div>
                                 <div class="form-group">
-                                  
                                     <textarea class="form-control" ng-model="actor.bio" placeholder="Tell us about you..." ng-requiiored="true" name="bio"></textarea>
                                     <div ng-show="addForm.bio.$touched && addForm.bio.$invalid" style="margin-top: 5px">
                                         <div class="alert alert-danger">
