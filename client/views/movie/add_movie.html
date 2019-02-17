@@ -3,286 +3,331 @@
     <a href="#/movies"><span class="glyphicon glyphicon-backward"></span>Go Back</a>
     <div class="panel panel-primary">
         <div class="panel-heading">
-            <b class="panel-title"><center>Add Movie</center> </b>
+            <b class="panel-title">
+                <center>Add Movie</center>
+            </b>
         </div>
-        <div class="panel-body"> 
-            <div ng-show="anuj">
-                <div class="alert alert-danger alert-dismissible fade in clearfix" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <p>producer start with name '{{message}}' does not exist in our database. Please click on <code>Add Producer</code> to register new producer. <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal">Add Producer</button></p>
-                </div>
-            </div>
-            <div ng-show="anuj1">
-                <div class="alert alert-danger alert-dismissible fade in clearfix" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <p>'{{message1}}'.</p>
-                    <button type="button" class="btn btn-info pull-right" data-toggle="modal" data-target="#myModal1">Add Actor</button>
-                </div>
-            </div>
-            <div ng-show="anuj2">
-                <div class="alert alert-danger alert-dismissible fade in clearfix" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <p>Actor start with name '{{message2}}' does not exist in our database. Please click on <code>Add Actor</code> to register new Actor. <button type="button" class="btn btn-info" data-toggle="modal" data-target="#myModal1">Add Actor</button></p>   
-                </div>
-            </div>
-            <div ng-show="anuj3">
-                <div class="alert alert-success alert-dismissible fade in clearfix" role="alert">
-                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                    <p>Actor start with name '{{message3}}' is found in our database.</p>
-                </div>
-            </div>
-            
-            <form name="addForm" ng-submit="addMovie()" >
+        <div class="panel-body">
+            <form name="addForm" ng-submit="addMovie()">
                 <div class="form-group">
                     <label>Movie Name</label>
                     <input type="text" class="form-control" ng-model="movie.name" placeholder="Name" name="name" ng-required="true">
                     <div ng-show="addForm.name.$touched && addForm.name.$invalid" style="margin-top: 5px">
                         <div class="alert alert-danger">
-                            <center><small>Please Enter Movie Name</small></center> 
-                        </div>  
+                            <center><small>Please Enter Movie Name</small></center>
+                        </div>
                     </div>
                 </div>
-
                 <div class="form-group autocomplete">
                     <label>Enter Producer</label>
-                    <div class="row">
-                        <div class="col-md-8 col-sm-8 col-xs-12">
-                            <input class="form-control" id="myInput" ng-model="movie.producername" type="text" name="producer" placeholder="Enter producer name" ng-required="true">
-                        </div>
-                        <div class="col-md-4 col-sm-4 col-xs-12">
-                            <a href="#/producers" class="btn btn-info"><i class="fa fa-users" aria-hidden="true"></i> Availabe Producers</a>
-                        </div>
+                    <div class="form-group">
+                        <input class="form-control" id="producername" ng-model="movie.producername" type="text" name="producer" placeholder="Enter producer name" ng-required="true">
                     </div>
                     <div ng-show="addForm.producername.$touched && addForm.producername.$invalid" style="margin-top: 5px">
                         <div class="alert alert-danger">
-                            <center><small>Please Enter Producer</small></center> 
+                            <center><small>Please Enter Producer</small></center>
                         </div>
                     </div>
-                </div>  
-                        
+                </div>
                 <div class="form-group">
                     <label>Plot</label>
                     <input type="text" class="form-control" ng-model="movie.plot" placeholder="enter plot of movie..." ng-required="true" name="plot">
                     <div ng-show="addForm.plot.$touched && addForm.plot.$invalid" style="margin-top: 5px">
                         <div class="alert alert-danger">
-                            <center><small>Please Enter Plot of movie</small></center> 
+                            <center><small>Please Enter Plot of movie</small></center>
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Yera Of Release</label>
                     <input type="date" class="form-control" ng-model="movie.yera_of_release" placeholder="Tell us about you..." ng-requiiored="true" name="yera_of_release">
                     <div ng-show="addForm.yera_of_release.$touched && addForm.yera_of_release.$invalid" style="margin-top: 5px">
                         <div class="alert alert-danger">
-                            <center><small>Please Enter Yera Of Release</small></center> 
+                            <center><small>Please Enter Yera Of Release</small></center>
                         </div>
                     </div>
                 </div>
-
                 <div class="form-group">
                     <label>Movie Information</label>
                     <textarea class="form-control" ng-model="movie.information" placeholder="Tell us about movie..." ng-requiiored="true" name="information"></textarea>
                     <div ng-show="addForm.information.$touched && addForm.information.$invalid" style="margin-top: 5px">
                         <div class="alert alert-danger">
-                            <center><small>Please Enter About Movie</small></center> 
+                            <center><small>Please Enter About Movie</small></center>
                         </div>
                     </div>
                 </div>
-            
                 <div class="form-group">
-                    <label>Actor Name <a href="#/actors" class="btn btn-info"><i class="fa fa-users" aria-hidden="true"></i> Availabe Actors</a></label>
-                    <div  ng-repeat="column in columns">
-                        <input class="form-control" id="myActor" ng-model="movie.member[$index]" type="text"  placeholder="Enter Actor name" ng-required="true">
-                        <br>
-                    </div> 
-                    <div class="row">
-                        <div class="col-lg-9 col-md-9 col-sm-9 "></div>
-                        <div class=" col-lg-3 col-md-3 col-sm-3">
-                            <button class="btn btn-success" ng-click="addNewColumn()">Add More Actor</button>
-                        </div>
+                    <label>Actor Name </label>
+                    <div id="more">
+                        <input class="form-control" id="myActor0" ng-model="movie.member[$index]" type="text" placeholder="Enter Actor name" ng-required="true">
                     </div>
+                    <br>
+                    <a class="btn btn-primary pull-right" id="btn2"><i class="fa fa-plus-circle" aria-hidden="true"></i> Add More</a>
+                    <div id="count"></div>
                     <div ng-show="addForm.member.$touched && addForm.member.$invalid" style="margin-top: 5px">
                         <div class="alert alert-danger">
-                            <center><small>Please Enter Actor</small></center> 
+                            <center><small>Please Enter Actor</small></center>
                         </div>
                     </div>
                 </div>
-                <center><button type="submit" class="btn btn-primary"><i class="fa fa-film" aria-hidden="true"></i> Add Movie</button> </center> 
+                <center><button type="submit" class="btn btn-primary"><i class="fa fa-film" aria-hidden="true"></i> Add Movie</button> </center>
             </form>
-
         </div>
         <div class="col-md-2"></div>
     </div>
 </div>
+<script type="text/javascript">
+var producersName = [];
+axios.get('/api/producers').then(function(response) {
+    for (var i = 0; i < response.data.length; i++) {
+        producersName.push(response.data[i].name);
+    }
+});
+var actorName = [];
+axios.get('/api/actors').then(function(response) {
+    for (var i = 0; i < response.data.length; i++) {
+        actorName.push(response.data[i].name);
+    }
+});
+autocompleteName(document.getElementById("producername"), producersName);
+autocomplete(document.getElementById("myActor0"), actorName);
 
- 
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Add Producer</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form ng-submit="addProducer()" name="addForm">
-                                    <div class="form-group">
-                                        <label>Name</label>
-                                        <input type="text" class="form-control" ng-model="producer.name" placeholder="Name" name="addname" ng-required="true">
-                                        {{producer.addname}}
-                                        <div ng-show="addForm.name.$touched && addForm.name.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Enter Name</small></center> 
-                                            </div>  
-                                        </div>
-                                    </div>
+function autocompleteName(inp, arrmed) {
 
-                                    <div class="form-group">
-                                        <label>Gender</label>
-                                        <select ng-model="producer.sex" class="form-control" ng-required="true" name="sex">
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
-                                        <div ng-show="addForm.sex.$touched && addForm.sex.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Choose Gender</small></center> 
-                                            </div>
-                                        </div>
-                                    </div>
+    /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    inp.addEventListener("input", function(e) {
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) { return false; }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
 
-                                    <div class="form-group">
-                                        <label>DOB</label>
-                                        <input type="date" class="form-control" ng-model="producer.dob" placeholder="Date Of Birth" ng-required="true" name="dob">
-                                        <div ng-show="addForm.dob.$touched && addForm.dob.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Enter DOB</small></center> 
-                                            </div>
-                                        </div>
-                                    </div>
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        var count2 = 0;
+        /*for each item in the array...*/
+        for (i = 0; i < arrmed.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            var str = arrmed[i].toString();
+            if (str.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a DIV element for each matching element:*/
+                count2++;
+                b = document.createElement("DIV");
+                /*make the matching letters bold:*/
+                b.innerHTML = "<strong>" + str.substr(0, val.length) + "</strong>";
+                b.innerHTML += str.substr(val.length);
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + str + "'>";
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                b.addEventListener("click", function(e) {
+                    /*insert the value for the autocomplete text field:*/
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
 
-                                    <div class="form-group">
-                                        <label for="inputPhone" >Phone</label>
-                                        <input type="number" class="form-control" ng-model="producer.phone" placeholder="MobileNo." ng-minlength="10" ng-maxlength="10" ng-required="true" name="phone">
-                                        <span class="help-block" ng-show="addForm.phone.$error.required || addForm.phone.$error.number">Valid phone number is required</span>
-                                        <span class="help-block" ng-show="((addForm.phone.$error.minlength ||addForm.phone.$error.maxlength) && addForm.phone.$dirty)">phone number should be 10 digits
-                                        </span>
-                                    </div>
+        if (count2 === 0) {
+            b = document.createElement("DIV");
+            b.innerHTML = "<strong>Producer Not Found</strong>";
+            a.appendChild(b);
+            document.getElementById("producername").value = "";
+        }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function(e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (x) x[currentFocus].click();
+            }
+        }
+    });
 
-                                    <div class="form-group">
-                                        <label>Bio</label>
-                                        <textarea class="form-control" ng-model="producer.bio" placeholder="Tell us about you..." ng-requiiored="true" name="bio"></textarea>
-                                        <div ng-show="addForm.bio.$touched && addForm.bio.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Enter Bio</small></center> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary" onclick="producerSubmit();">Submit</button> 
-                                </form>
-                            </div>
-                            <div class="col-md-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+    }
 
-<div class="modal fade" id="myModal1" role="dialog">
-    <div class="modal-dialog modal-lg">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal Header</h4>
-            </div>
-            <div class="modal-body">
-                <div class="row">
-                    <div class="col-md-2"></div>
-                    <div class="col-md-8">
-                        <a href="#/actors"><span class="glyphicon glyphicon-backward"></span>Go Back</a>
-                        <div class="panel panel-primary">
-                            <div class="panel-heading">
-                                <h3 class="panel-title">Add Actor</h3>
-                            </div>
-                            <div class="panel-body">
-                                <form ng-submit="addActor()" name="addForm">
-                                    <div class="form-group">
-                                        <label>Name</label>
-                                        <input type="text" class="form-control" ng-model="actor.name" placeholder="Name" name="name" ng-required="true">
-                                        <div ng-show="addForm.name.$touched && addForm.name.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Enter Name</small></center> 
-                                            </div>  
-                                        </div>
-                                    </div>
+    function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
 
-                                    <div class="form-group">
-                                        <label>Gender</label>
-                                        <select ng-model="actor.sex" class="form-control" ng-required="true" name="sex">
-                                            <option value="Male">Male</option>
-                                            <option value="Female">Female</option>
-                                        </select>
-                                        <div ng-show="addForm.sex.$touched && addForm.sex.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Choose Gender</small></center> 
-                                            </div>
-                                        </div>
-                                    </div>
+    function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function(e) {
+        closeAllLists(e.target);
+    });
+}
 
-                                    <div class="form-group">
-                                        <label>DOB</label>
-                                        <input type="date" class="form-control" ng-model="actor.dob" placeholder="Date Of Birth" ng-required="true" name="dob">
-                                        <div ng-show="addForm.dob.$touched && addForm.dob.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Enter DOB</small></center> 
-                                            </div>
-                                        </div>
-                                    </div>
 
-                                    <div class="form-group">
-                                        <label for="inputPhone" >Phone</label>
-                                        <input type="number" class="form-control" ng-model="actor.phone" placeholder="MobileNo." ng-minlength="10" ng-maxlength="10" ng-required="true" name="phone">
-                                        <span class="help-block" ng-show="addForm.phone.$error.required || addForm.phone.$error.number">Valid phone number is required</span>
-                                        <span class="help-block" ng-show="((addForm.phone.$error.minlength ||addForm.phone.$error.maxlength) && addForm.phone.$dirty)">phone number should be 10 digits
-                                        </span>
-                                    </div>
+function autocomplete(inp, arrmed) {
 
-                                    <div class="form-group">
-                                        <label>Bio</label>
-                                        <textarea class="form-control" ng-model="actor.bio" placeholder="Tell us about you..." ng-requiiored="true" name="bio"></textarea>
-                                        <div ng-show="addForm.bio.$touched && addForm.bio.$invalid" style="margin-top: 5px">
-                                            <div class="alert alert-danger">
-                                                <center><small>Please Enter Bio</small></center> 
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <button type="submit" class="btn btn-primary">Submit</button> 
-                                </form>
-                            </div>
-                            <div class="col-md-2"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+    /*the autocomplete function takes two arguments,
+    the text field element and an array of possible autocompleted values:*/
+    var currentFocus;
+    /*execute a function when someone writes in the text field:*/
+    inp.addEventListener("input", function(e) {
+        var a, b, i, val = this.value;
+        /*close any already open lists of autocompleted values*/
+        closeAllLists();
+        if (!val) { return false; }
+        currentFocus = -1;
+        /*create a DIV element that will contain the items (values):*/
+        a = document.createElement("DIV");
+        a.setAttribute("id", this.id + "autocomplete-list");
+        a.setAttribute("class", "autocomplete-items");
 
- 
+        /*append the DIV element as a child of the autocomplete container:*/
+        this.parentNode.appendChild(a);
+        var count2 = 0;
+        /*for each item in the array...*/
+        for (i = 0; i < arrmed.length; i++) {
+            /*check if the item starts with the same letters as the text field value:*/
+            var str = arrmed[i].toString();
+            if (str.substr(0, val.length).toUpperCase() == val.toUpperCase()) {
+                /*create a DIV element for each matching element:*/
+                count2++;
+                b = document.createElement("DIV");
+                /*make the matching letters bold:*/
+                b.innerHTML = "<strong>" + str.substr(0, val.length) + "</strong>";
+                b.innerHTML += str.substr(val.length);
+                /*insert a input field that will hold the current array item's value:*/
+                b.innerHTML += "<input type='hidden' value='" + str + "'>";
+                /*execute a function when someone clicks on the item value (DIV element):*/
+                b.addEventListener("click", function(e) {
+                    /*insert the value for the autocomplete text field:*/
+                    inp.value = this.getElementsByTagName("input")[0].value;
+                    /*close the list of autocompleted values,
+                    (or any other open lists of autocompleted values:*/
+                    closeAllLists();
+                });
+                a.appendChild(b);
+            }
+        }
+
+        if (count2 === 0) {
+            b = document.createElement("DIV");
+            b.innerHTML = "<strong>Actor Not Found</strong>";
+            a.appendChild(b);
+            inp.value = "";
+        }
+    });
+    /*execute a function presses a key on the keyboard:*/
+    inp.addEventListener("keydown", function(e) {
+        var x = document.getElementById(this.id + "autocomplete-list");
+        if (x) x = x.getElementsByTagName("div");
+        if (e.keyCode == 40) {
+            /*If the arrow DOWN key is pressed,
+            increase the currentFocus variable:*/
+            currentFocus++;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 38) { //up
+            /*If the arrow UP key is pressed,
+            decrease the currentFocus variable:*/
+            currentFocus--;
+            /*and and make the current item more visible:*/
+            addActive(x);
+        } else if (e.keyCode == 13) {
+            /*If the ENTER key is pressed, prevent the form from being submitted,*/
+            e.preventDefault();
+            if (currentFocus > -1) {
+                /*and simulate a click on the "active" item:*/
+                if (x) x[currentFocus].click();
+            }
+        }
+    });
+
+    function addActive(x) {
+        /*a function to classify an item as "active":*/
+        if (!x) return false;
+        /*start by removing the "active" class on all items:*/
+        removeActive(x);
+        if (currentFocus >= x.length) currentFocus = 0;
+        if (currentFocus < 0) currentFocus = (x.length - 1);
+        /*add class "autocomplete-active":*/
+        x[currentFocus].classList.add("autocomplete-active");
+    }
+
+    function removeActive(x) {
+        /*a function to remove the "active" class from all autocomplete items:*/
+        for (var i = 0; i < x.length; i++) {
+            x[i].classList.remove("autocomplete-active");
+        }
+    }
+
+    function closeAllLists(elmnt) {
+        /*close all autocomplete lists in the document,
+        except the one passed as an argument:*/
+        var x = document.getElementsByClassName("autocomplete-items");
+        for (var i = 0; i < x.length; i++) {
+            if (elmnt != x[i] && elmnt != inp) {
+                x[i].parentNode.removeChild(x[i]);
+            }
+        }
+    }
+    /*execute a function when someone clicks in the document:*/
+    document.addEventListener("click", function(e) {
+        closeAllLists(e.target);
+    });
+}
+
+var count = 1;
+$("#btn2").click(function() {
+    $("#more").append('</br><input class="form-control" id="myActor' + count + '" ng-model="movie.member[$index]" type="text" placeholder="Enter Actor name" ng-required="true">');
+    document.getElementById('count').value = count;
+    var actorName = [];
+    axios.get('/api/actors').then(function(response) {
+        for (var i = 0; i < response.data.length; i++) {
+            actorName.push(response.data[i].name);
+        }
+    });
+    autocomplete(document.getElementById("myActor" + count), actorName);
+    count++;
+});
+</script>

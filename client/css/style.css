@@ -20,6 +20,27 @@ input.ng-invalid.ng-touched, textarea.ng-invalid.ng-touched,select.ng-invalid.ng
 }
 
 
+.autocomplete-items {
+      border: 1px solid #d4d4d4;
+      border-bottom: none;
+      border-top: none;
+      z-index: 99;
+      height : 100px;
+      overflow: scroll;
+      left: 0;
+      right: 0;
+}
+.autocomplete-items div {
+    padding: 10px;
+    cursor: pointer;
+    background-color: #fff;
+    border-bottom: 1px solid #d4d4d4;
+}
+
+/*when hovering an item:*/
+.autocomplete-items div:hover {
+    background-color: #e9e9e9;
+}
  
 #msform {
     text-align: center;

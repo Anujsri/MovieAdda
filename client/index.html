@@ -4,9 +4,10 @@
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.min.css">
     <link rel="stylesheet" href="font-awesome/css/font-awesome.min.css">
-    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/home.css">
     <link rel="stylesheet" href="css/nav.css">
     <link rel="stylesheet" href="css/style.css">
+     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 </head>
 <body ng-app="myApp"> 
     <nav class="navbar  navbar-fixed-top" role="navigation">
@@ -90,26 +91,26 @@
     <div class="wrapper" >
     <!-- Sidebar Holder -->
         <nav id="sidebar" style="background-color: #343E54">
-            <ul class="list-unstyled components" style="margin-top: 10px">
-                <li class="active"><a href="#movies" data-toggle="pill"><i class="fa fa-film" aria-hidden="true"></i> Movies</a></li>
-                <li><a href="#/movies/add"><i class="fa fa-file-video-o" aria-hidden="true"></i> Add Movie</a></li>
-                <li><a href="#/actors/add"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Actor</a></li>
-                <li><a href="#/producers/add"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Producer</a></li>
-                <li><a href="#/actors/"><i class="fa fa-users" aria-hidden="true"></i> Actors</a></li>
-                <li><a href="#/producers/"><i class="fa fa-address-card-o" aria-hidden="true"></i> Producers</a></li>
+            <ul class="list-unstyled components" style="margin-top: 10%">
+                <li><a  href="#movies" data-toggle="pill"><i class="fa fa-film" aria-hidden="true"></i> Movies</a></li>
+                <li><a  href="#/movies/add" data-toggle="pill"><i class="fa fa-file-video-o" aria-hidden="true"></i> Add Movie</a></li>
+                <li><a data-toggle="pill" href="#/actors/add"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Actor</a></li>
+                <li><a data-toggle="pill" href="#/producers/add"><i class="fa fa-user-plus" aria-hidden="true"></i> Add Producer</a></li>
+                <li><a data-toggle="pill" href="#/actors/"><i class="fa fa-users" aria-hidden="true"></i> Actors</a></li>
+                <li><a data-toggle="pill" href="#/producers/"><i class="fa fa-address-card-o" aria-hidden="true"></i> Producers</a></li>
             </ul>     
         </nav>
 
         <!-- Page Content Holder -->
         <div id="content" style="background-color: #E5E8E8    ">
-            <button type="button" id="sidebarCollapse" style="position: fixed;margin-left: -18px;margin-top: 15px" >
+            <button type="button" id="sidebarCollapse" style="position: fixed;margin-left: -18px;margin-top: 10%" >
                 <div class="contain" onclick="myFunction(this)">
                     <div class="bar1"></div>
                     <div class="bar2"></div>
                     <div class="bar3"></div>
                 </div>        
             </button> 
-              <div style="margin-top: 50px"> <div  ng-view></div></div> 
+              <div style="margin-top: 15%"> <div  ng-view></div></div> 
            
         </div>
     </div>
